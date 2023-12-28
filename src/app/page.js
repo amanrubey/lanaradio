@@ -8,10 +8,11 @@ import { useRef } from 'react';
 import { useSound } from 'use-sound';
 // import boopSfx from '/song.mp3';
 export default function Page() {
-
+  const [value,setValue] = useState(0)
   var myAudio = new Howl({
-    src: ['/song2.mp3'],
-    html5: true
+    src: ['/song3.mp3'],
+    html5: true,
+    loop: true
   });
   function togglePlay() {
     if(myAudio.playing())
@@ -27,7 +28,7 @@ export default function Page() {
   return (
     <NextUIProvider>
       <div className="bg-gradient-to-b from-rose-400 to-rose-700 min-h-screen min-w-screen flex justify-center items-center">
-        <Card isPressable onPress={togglePlay} className="py-4 bg-opacity-20 text-transparent text-white focus:bg-opacity-0 hover:duration-300  hover:scale-105 focus:scale-125 focus:duration-2000 focus:-translate-x-unit-8xl cursor-pointer">
+        <Card isPressable onPress={()=>{togglePlay()}} className="py-4 bg-opacity-20 text-transparent text-white focus:bg-opacity-0 hover:duration-300  hover:scale-105 focus:scale-125 focus:duration-2000 focus:-translate-x-unit-8xl cursor-pointer">
 
           <CardHeader className="pb-0  pt-2 px-4 flex-col items-start">
             <p className="text-tiny uppercase font-bold">Daily Mix</p>
